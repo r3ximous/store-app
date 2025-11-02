@@ -14,23 +14,28 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let product of products">
+      <!-- Loop through each product -->
+      <tr *ngFor="let product of products" [class.has-reserved]="product.reserved > 0">
         <td>{{ product.code }}</td>
         <td>{{ product.name }}</td>
         <td>{{ product.price | currency }}</td>
         <td>{{ product.description }}</td>
-        <td>{{ product.reserved }}</td>
+        <td><strong>{{ product.reserved }}</strong></td>
         <td class="actions">
-          <button (click)="decrease(product.code)" class="btn-decrease">−</button>
-          <button (click)="increase(product.code)" class="btn-increase">+</button>
+          <!-- Decrease button -->
+          <button (click)="removeOne(product.code)" class="btn-decrease" [disabled]="product.reserved === 0">−</button>
+          <!-- Increase button -->
+          <button (click)="addOne(product.code)" class="btn-increase">+</button>
         </td>
-        <td>{{ product.price * product.reserved | currency }}</td>
+        <!-- Calculate subtotal for this product -->
+        <td><strong>{{ product.price * product.reserved | currency }}</strong></td>
       </tr>
     </tbody>
     <tfoot>
-      <tr class="total-row">
+      <!-- Total row -->
+      <tr class="total-row" [class.has-total]="calculateTotal() > 0">
         <td colspan="6"><strong>Total Price:</strong></td>
-        <td><strong>{{ getTotal() | currency }}</strong></td>
+        <td><strong>{{ calculateTotal() | currency }}</strong></td>
       </tr>
     </tfoot>
   </table>

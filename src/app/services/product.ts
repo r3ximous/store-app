@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
 
+// Service to manage product data (like a database)
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
+  // Array of products - this is our "database"
   private products: Product[] = [
     {
       code: 'P001',
@@ -43,19 +45,25 @@ export class ProductService {
     }
   ];
 
+  // Get all products
   getProducts(): Product[] {
     return this.products;
   }
 
+  // Add one to the reserved count for a product
   increaseReserved(code: string): void {
+    // Find the product with this code
     const product = this.products.find(p => p.code === code);
     if (product) {
       product.reserved++;
     }
   }
 
+  // Remove one from the reserved count for a product
   decreaseReserved(code: string): void {
+    // Find the product with this code
     const product = this.products.find(p => p.code === code);
+    // Only decrease if reserved is greater than 0
     if (product && product.reserved > 0) {
       product.reserved--;
     }

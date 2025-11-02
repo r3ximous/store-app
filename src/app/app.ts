@@ -3,6 +3,7 @@ import { Header } from './header/header';
 import { ProductList } from './product-list/product-list';
 import { Footer } from './footer/footer';
 
+// Main app component - puts together all the pieces
 @Component({
   selector: 'app-root',
   imports: [Header, ProductList, Footer],

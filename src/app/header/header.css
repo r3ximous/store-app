@@ -1,14 +1,13 @@
+/* Header styling for the store name */
 header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color: #4a5fd9;
   color: white;
-  padding: 2rem;
+  padding: 20px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #333;
 }
 
 h1 {
   margin: 0;
-  font-size: 2.5rem;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 2em;
 }

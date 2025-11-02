@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+// Header component - displays the store name at the top
 @Component({
   selector: 'app-header',
   imports: [],
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './header.css',
 })
 export class Header {
-  storeName = "Tech Store";
+  // Store name variable
+  name = "Tech Store";
 }
